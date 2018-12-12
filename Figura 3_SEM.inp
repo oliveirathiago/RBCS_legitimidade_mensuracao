@@ -1,0 +1,51 @@
+Title:
+	Figura 2 de "Legitimidade policial: um modelo de mensuracao"
+	
+Data:
+	File is ~/[change accordingly]/data.dat ;
+	
+Variable:
+	Names are
+		QUEST 
+		pj1 pj2 pj3 pj4 pj5 pj6 
+		eff1 eff2 eff3 eff4 eff5 eff6 eff7  
+		comp1 comp2 comp3 comp4 comp5 comp6 comp7 
+		risk1 risk2 risk3 risk4 risk5 risk6 risk7
+		nal1 nal2 nal3 
+		duty1 duty2 duty3
+		compli
+		cluster;
+	Categorical are
+		pj1 pj2 pj3 pj4 pj5 pj6 
+		eff1 eff2 eff3 eff4 eff5 eff6 eff7 
+		comp1 comp2 comp3 comp4 comp5 comp6 comp7
+		risk1 risk2 risk3 risk4 risk5 risk6 risk7
+		nal1 nal2 nal3 
+		duty1 duty2 duty3;
+	Cluster is
+		cluster ;
+	Usevariables are
+		pj1 pj2 pj3 pj4 pj5 pj6 
+		eff1 eff2 eff3 eff4 eff5 eff6 eff7 
+		comp1 comp2 comp3 comp4 comp5 comp6 comp7
+		risk1 risk2 risk3 risk4 risk5 risk6 risk7
+		nal1 nal2 nal3 
+		duty1 duty2 duty3 ;
+	Missing are . ;
+
+Analysis:
+	Type is Complex ;
+	
+Model:
+	PJ by pj1-pj6 ;
+	EFF by eff1-eff7 ;
+	Nal by nal1 nal2 nal3 ;
+	Duty by duty1 duty2 duty3;
+	Leg by Nal Duty ;
+	Risk by risk1-risk7 ;
+	Comp by comp1-comp7 ;
+	
+	Leg on PJ EFF ;
+	Comp on Leg Risk ;
+	
+	PJ with EFF ;
