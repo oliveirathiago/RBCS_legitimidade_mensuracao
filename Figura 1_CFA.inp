@@ -1,0 +1,36 @@
+Title:
+	CFA for police legitimacy
+	
+Data:
+	File is [chage accordingly]/data.dat ;
+	
+Variable:
+	Names are
+		QUEST 
+		pj1 pj2 pj3 pj4 pj5 pj6 
+		eff1 eff2 eff3 eff4 eff5 eff6 eff7  
+		comp1 comp2 comp3 comp4 comp5 comp6 comp7 
+		risk1 risk2 risk3 risk4 risk5 risk6 risk7
+		nal1 nal2 nal3 
+		duty1 duty2 duty3
+		compli
+		cluster_t2 ;
+	Usevariables are
+		nal1 nal2 nal3 
+		duty1 duty2 duty3 ;
+	Idvariable are
+		QUEST ;
+	Missing are . ;
+	
+Model:
+	Nal by nal1 nal2 nal3 ;
+	Duty by duty1 duty2 ;
+	Leg by duty3* Nal Duty ;
+	Leg@1 ;
+	
+Output:
+	MODINDICES ;
+	
+Savedata:
+	file is scores.txt ;
+	save = fscores ;
